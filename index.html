@@ -13,20 +13,35 @@
 
 <body class="container">
     <!-- header part  -->
-    <header class="mt-5">
+    <header class="my-5">
 
         <!-- search field  -->
         <div class="input-group mb-3 w-50 mx-auto">
-            <input type="text" class="form-control" placeholder="Search For a meal.." aria-label="Search For a meal.."
-                aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+            <input id="input-field" type="text" class="form-control" placeholder="Search For a meal.."
+                aria-label="Search For a meal.." aria-describedby="button-addon2">
+            <button onclick="loadMealsByName()" class="btn btn-outline-secondary" type="button"
+                id="button-addon2">Search</button>
 
         </div>
     </header>
 
     <!-- main part  -->
     <main>
+        <!-- meals list  -->
 
+        <div id="meals-container" class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
 
