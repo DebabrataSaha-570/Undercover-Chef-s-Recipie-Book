@@ -1,7 +1,14 @@
+
 const loadMealsByName = () => {
     const inputField = document.getElementById('input-field')
     const mealName = inputField.value;
     inputField.value = '';
+    const mealsContainer = document.getElementById('meals-container');
+    mealsContainer.innerHTML = `
+    <div id="loading-spinner" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+    `
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`)
         .then(res => res.json())
         .then(data => displayMeals(data.meals))
@@ -9,23 +16,33 @@ const loadMealsByName = () => {
 
 const displayMeals = (meals) => {
     const mealsContainer = document.getElementById('meals-container');
+    mealsContainer.innerHTML = '';
+    console.log('meals length', meals.length)
+
+
+
 
     meals.forEach(meal => {
         const div = document.createElement('div')
         div.classList.add('col')
+
         div.innerHTML = `
-       <div onClick="singleMealDetail('${meal.idMeal}')"  class="card h-100 ">
-                    <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">${meal.strMeal}</h5>
-                        
-                      
-                    </div>
-                </div>
-       
-       `
+            <div onClick="singleMealDetail('${meal.idMeal}')"  class="card h-100 ">
+            <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title text-center">${meal.strMeal}</h5>
+            
+            
+            </div>
+            </div>
+            
+            `
+            ;
         mealsContainer.appendChild(div)
     })
+
+
+
 }
 
 const singleMealDetail = (id) => {
@@ -49,4 +66,5 @@ const displayMealDetail = (meal) => {
   </div>
     `
 }
+
 
