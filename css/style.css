@@ -2,8 +2,10 @@
     cursor: pointer;
 }
 .card:hover{
-    box-shadow: 10px 10px 20px  #01010e33;
+    box-shadow: 10px 10px 20px  #0606317a;
+    /* box-shadow: 10px 10px 20px  #01010e33; */
     transition: all .5s ease;
+    
 }
 body{
     /* background: rgb(55,52,92);
