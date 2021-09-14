@@ -18,12 +18,12 @@
 <body class="container">
     <!-- header part  -->
     <header class="my-5">
-
+        <h1 class="text-center text-white my-5">Welcome to my recipe book</h1>
         <!-- search field  -->
         <div class="input-group mb-3 w-50 mx-auto">
             <input id="input-field" type="text" class="form-control" placeholder="Search For a meal.."
                 aria-label="Search For a meal.." aria-describedby="button-addon2">
-            <button onclick="loadMealsByName()" class="btn btn-outline-secondary" type="button"
+            <button onclick="loadMealsByName()" class="btn btn-secondary" type="button"
                 id="button-addon2">Search</button>
 
         </div>
@@ -34,8 +34,13 @@
     <!-- main part  -->
     <main>
         <!-- meal details  -->
-        <div id="meal-detail-container">
 
+        <!-- Modal -->
+        <div class="modal modal-dialog-scrollable fade" id="exampleModal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div id="meal-details" class="modal-dialog">
+
+            </div>
         </div>
 
 
@@ -47,6 +52,8 @@
 
 
         </div>
+
+
     </main>
 
 

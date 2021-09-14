@@ -3,4 +3,11 @@
 }
 .card:hover{
     box-shadow: 10px 10px 20px  #01010e33;
+    transition: all .5s ease;
+}
+body{
+    /* background: rgb(55,52,92);
+background: linear-gradient(90deg, rgba(55,52,92,1) 0%, rgba(186,186,205,1) 55%, rgba(130,196,209,1) 100%); */
+
+background-image: linear-gradient(to right, #2c3e50, #4ca1af);
 }
