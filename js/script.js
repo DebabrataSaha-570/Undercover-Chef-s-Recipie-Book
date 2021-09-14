@@ -4,14 +4,21 @@ const loadMealsByName = () => {
     const mealName = inputField.value;
     inputField.value = '';
     const mealsContainer = document.getElementById('meals-container');
-    mealsContainer.innerHTML = `
+
+    if (mealName.length > 0) {
+        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`)
+            .then(res => res.json())
+            .then(data => displayMeals(data.meals))
+
+        mealsContainer.innerHTML = `
     <div id="loading-spinner" class="spinner-border text-primary" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
     `
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`)
-        .then(res => res.json())
-        .then(data => displayMeals(data.meals))
+    }
+    else {
+        alert('please write something to display')
+    }
 }
 
 const displayMeals = (meals) => {
@@ -25,6 +32,7 @@ const displayMeals = (meals) => {
     meals.forEach(meal => {
         const div = document.createElement('div')
         div.classList.add('col')
+        div.classList.add('cards')
 
         div.innerHTML = `
             <div onClick="singleMealDetail('${meal.idMeal}')"  class="card h-100 ">
